@@ -91,11 +91,13 @@ export default class Index extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
+    const { user } = this.state
     var db = firebase.firestore()
     const date = new Date().getTime()
     db.collection('messages')
       .doc(`${date}`)
       .set({
+        email: user.email,
         id: date,
         text: this.state.value,
       })
@@ -133,7 +135,7 @@ export default class Index extends Component {
             <ul>
               {messages &&
                 Object.keys(messages).map(key => (
-                  <li key={key}>{messages[key].text}</li>
+                  <li key={key}>{messages[key].text}<span> {messages[key].email ? messages[key].email : 'error' }</span></li>
                 ))}
             </ul>
           </div>
