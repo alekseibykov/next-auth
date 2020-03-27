@@ -1,3 +1,5 @@
+# https://next-auth-one.now.sh/
+
 # With Firebase Authentication example
 
 The goal is to authenticate users with firebase and store their auth token in sessions. A logged in user will see their messages on page load and then be able to post new messages.
